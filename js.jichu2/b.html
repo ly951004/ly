@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    p{
+        font-size: 60px;
+    }
+   
+    </style>
+</head>
+<body>
+    <p id="time"></p>
+    <img src="image/1.jpg" alt="">
+    <img src="image/2.jpg" alt="">
+    <img src="image/3.jpg" alt="">
+    <img src="image/4.jpg" alt="">
+    <img src="image/5.jpg" alt="">
+     <img src="image/6.jpg" alt="">
+
+    <script>
+   var op=document.getElementById('time') ;  
+   var aimg=document.getElementsByTagName('img') ;
+  //alert(new Date());当前系统的时间对象
+  //mytime typeof object
+ setInterval(fntime,1000);
+ function fntime(){
+    var mytime=new Date();
+  //number
+  
+ var ihours=mytime.getHours();
+ var imin=mytime.getMinutes();
+ var isec=mytime.getSeconds();
+ var str=fnnumber(ihours)+fnnumber(imin )+fnnumber(isec); 
+    
+ 
+//op.innerHTML=str;
+
+
+for(var i=0;i<str.length;i++){
+    aimg[i].src='image/'+str.charAt(i)+'.jpg';
+}
+
+ }
+   fntime();  
+   function fnnumber(n){
+   if(n<10){
+     return '0'+n; //05
+   }else{
+       return ''+n;  //15
+   }
+   }
+   //alert(fnnumber(05));
+   //alert(fnnumber(15));
+    </script>
+</body>
+</html>

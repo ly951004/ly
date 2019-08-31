@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  
+</head>
+<body>
+   距离：<input type="text" name="" id="" value="August 27 2019 10:30:00">
+   还剩：<input type="text" name=""  >
+    <input type="button" name="" id="" value="倒计时">
+    
+    <script>
+        var ainp=document.getElementsByTagName('input');
+        var time='';
+       ainp[2].onclick=function(){
+           clearInterval(time);
+           setInterval(fntime,1000);
+           function fntime(){
+            var inow= new Date();
+        var inew=new Date(ainp[0].value);
+        var t=Math.floor(inew-inow)/1000;
+        if(t>0){
+            var str=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)+'时'+Math.floor(t%86400%3600/60)+'分'+Math.floor(t%60)+'秒';
+         ainp[1].value=str;
+        }else{
+            clearInterval(time);
+        }
+       
+           }
+           fntime();
+       }
+           
+        //var inew= new Date(2019,07,27,10,30,0);
+        //var inew=new Date('August 27 2019 10:30:00');
+        //var t=Math.floor(inew-inow)/1000;
+
+         
+      
+       
+        </script>
+</body>
+</html>

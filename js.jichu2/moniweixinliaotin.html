@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手机微信模拟聊天</title>
+    <style>
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        margin-bottom: 5px;
+    }
+    p{
+        margin: 0;
+       
+    }
+    img{
+        vertical-align:bottom; 
+    }
+    .warp{
+        width: 400px;
+        height: 600px;
+        margin: 100px 300px;
+        border: 1px solid black;
+        position: relative;
+    }
+    .list div{
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+    }
+    #text{
+        width: 300px;
+        height: 30px;
+        padding: 0;
+        border: 1px solid black;
+        position: absolute;
+        bottom: 0;
+        left: 35px;
+    }
+    #button{
+        width: 60px;
+        height: 32px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .fl img,.fl p{
+       float: left;
+    }
+    .fl p{
+        line-height: 30px;
+        margin-left: 5px;
+       border: 1px solid black;
+        max-width: 345px;
+        margin-bottom: 5px;
+    }
+    .fr img,.fr p{
+       float: right;
+    }
+    .fr p{
+        line-height: 30px;
+        margin-right: 5px;
+       border: 1px solid black;
+        max-width: 345px;
+        margin-bottom: 5px;
+    }
+  .list{
+      width: 400px;
+      height: 560px;
+      border-bottom: 1px solid black;
+    overflow-y: scroll;
+  }
+  .clearfix:after{
+         content: '';
+         display: block;
+         clear: both;
+  }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="list">
+        <div><img src="image/1.JPG" alt="" ></div>
+        <input type="text" name="" id="text">
+        <input type="button" name="" id="button" value="发送">
+        <ul>
+          
+            
+        </ul>
+    </div>
+    </div>
+    <script>
+     var oimg=document.getElementsByTagName('img')[0];
+     var oul=document.getElementsByTagName('ul')[0];
+     var obut=document.getElementById('button');
+     var otext=document.getElementById('text');
+     var onoff=true;
+       oimg.onclick=function(){
+           if(onoff){
+            oimg.src='image/2.JPG';
+           }else{
+             
+           oimg.src='image/1.JPG';  
+           }
+            onoff=!onoff;
+       }
+       obut.onclick=function(){
+           if(otext.value==''){
+            alert('请输入内容！');
+           }
+           else if ((onoff)){
+            oul.innerHTML='<li class="fl clearfix"> <img src="image/1.JPG" alt=""> <p>'+otext.value+'</p></li>'+oul.innerHTML;
+           }else{
+            oul.innerHTML='<li class="fr clearfix"> <img src="image/2.JPG" alt=""> <p>'+otext.value+'</p></li>'+oul.innerHTML;
+           }
+           otext.value='';
+       }
+      
+    </script>
+</body>
+</html>
